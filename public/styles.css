@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..800&display=swap');
+
 @font-face {
   font-family: 'SF Pro Display';
   src: url('./assets/font.ttf') format('opentype');
-  font-weight: bold;
+  font-weight: lighter;
 }
 
 @font-face {
   font-family: 'SF Pro Regular';
   src: url('./assets/font.ttf') format('opentype');
-  font-weight: regular;
+  font-weight: lighter;
 }
 
 * {
   font-family: 'SF Pro Regular', sans-serif;
+  font-weight: 400;
 }
 
 i {
@@ -72,14 +75,14 @@ body {
 }
 
 #editor {
-  flex: 0 0 auto;  
-  width: 500px;     
+  flex: 0 0 auto;
+  width: 500px;
   min-width: 200px;
   border-right: none;
 }
 
 #preview {
-  flex: 1;         
+  flex: 1;
   min-width: 200px;
   position: relative;
   overflow: auto;
@@ -90,7 +93,7 @@ body {
   background: #333;
   cursor: col-resize;
   transition: background 0.3s;
-  flex: 0 0 auto;  
+  flex: 0 0 auto;
 }
 
 #divider:hover {
@@ -147,11 +150,16 @@ body.resizing {
 .preview-line {
   font-size: 32px;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 40px 0;
+  text-align: center;
   min-height: 40px;
   filter: blur(1px);
   transition: filter 0.3s ease;
-  max-width: 80%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
 }
 
 .preview-line.active {
@@ -161,7 +169,7 @@ body.resizing {
 .preview-letter {
   display: inline-block;
   color: gray;
-  transition: color 0.5s ease, transform 1.5s cubic-bezier(.4,.2,.3,1);
+  transition: color 0.5s ease, transform 1.5s cubic-bezier(.4, .2, .3, 1);
 }
 
 .preview-letter.active {
@@ -175,7 +183,7 @@ body.resizing {
 
 .right-lyric {
   text-align: right;
-  margin-left: auto;  
+  margin-left: auto;
 }
 
 .preview-line.finished .preview-letter {
@@ -195,30 +203,31 @@ body.resizing {
   transform: none !important;
 }
 
-.preview-word.active.glow {
-  animation: glowPulse 2s infinite;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+.glow {
+  animation: glowPulse 1.5s cubic-bezier(.4, .2, .3, 1) forwards;
 }
 
 @keyframes glowPulse {
   0% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 0px rgba(255, 255, 255, 0.7);
   }
+
   50% {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
   }
+
   100% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
   }
 }
 
 @keyframes riseUp {
   0% {
-      top: 0;
+    top: 0;
   }
 
   100% {
-      top: -3px;
+    top: -3px;
   }
 }
 
@@ -280,7 +289,8 @@ body.resizing {
   transition: all 0.3s ease;
 }
 
-.add-sub-button:hover, .syllable-btn:hover {
+.add-sub-button:hover,
+.syllable-btn:hover {
   background: #444;
 }
 
@@ -320,7 +330,7 @@ body.resizing {
 
 .preview-sublyric .preview-letter {
   color: #444;
-  transition: color 0.3s ease, transform 0.9s cubic-bezier(.4,.2,.3,1);
+  transition: color 0.3s ease, transform 0.9s cubic-bezier(.4, .2, .3, 1);
 }
 
 .preview-sublyric.visible {
@@ -433,7 +443,7 @@ body.resizing {
   display: none;
   position: absolute;
   background-color: #222;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 83px;
   border-radius: 8px;
@@ -510,7 +520,8 @@ body.resizing {
     flex-direction: column;
   }
 
-  #editor, #preview {
+  #editor,
+  #preview {
     width: 100%;
     height: calc(100vh - 110px);
     display: none;
@@ -520,7 +531,8 @@ body.resizing {
     padding: 0;
   }
 
-  #editor.active, #preview.active {
+  #editor.active,
+  #preview.active {
     display: block;
   }
 
@@ -548,7 +560,7 @@ body.resizing {
   #linesContainer .line input {
     width: 100px;
   }
-  
+
   .line {
     flex-direction: unset;
   }
@@ -593,7 +605,7 @@ body.resizing {
   background: #222;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   width: 90%;
   max-width: 600px;
@@ -612,7 +624,7 @@ body.resizing {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 999;
 }
 
