@@ -161,11 +161,12 @@ body.resizing {
 .preview-letter {
   display: inline-block;
   color: gray;
-  transition: color 0.5s ease;
+  transition: color 0.5s ease, transform 0.5s ease;
 }
 
 .preview-letter.active {
   color: white;
+  transform: translateY(-3px);
 }
 
 .left-lyric {
@@ -319,7 +320,7 @@ body.resizing {
 
 .preview-sublyric .preview-letter {
   color: #444;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .preview-sublyric.visible {
@@ -332,6 +333,7 @@ body.resizing {
 
 .preview-sublyric.active .preview-letter.active {
   color: #999;
+  transform: translateY(-2px)
 }
 
 .preview-sublyric.active {
